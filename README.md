@@ -129,14 +129,14 @@ CREATE
   ```
 ## III. Benefits and Challenge
 ### Benefits
-**Enhanced Network Analysis**: Offers comprehensive insights into user interactions and content connections within the social network.
-**Targeted Content Discovery**: Advanced querying capabilities for efficiently locating specific topic-related posts by relevant users.
-**Customized User Experience**: Personalized content recommendations based on detailed analysis of user interests and network connections.
+- **Enhanced Network Analysis**: Offers comprehensive insights into user interactions and content connections within the social network.
+- **Targeted Content Discovery**: Advanced querying capabilities for efficiently locating specific topic-related posts by relevant users.
+- **Customized User Experience**: Personalized content recommendations based on detailed analysis of user interests and network connections.
 
 ### Challenges
-**Query Complexity**: Navigating the intricacies of writing efficient graph queries, especially for complex relationships, presents a learning curve.
-**Lack of Enforced Schema**: The absence of a built-in schema can lead to inconsistencies and requires careful design to maintain data integrity.
-**Aggregation Query Limitations**: Performing certain types of aggregation queries is more complex compared to traditional SQL databases, potentially impacting data analysis efficiency.
+- **Query Complexity**: Navigating the intricacies of writing efficient graph queries, especially for complex relationships, presents a learning curve.
+- **Lack of Enforced Schema**: The absence of a built-in schema can lead to inconsistencies and requires careful design to maintain data integrity.
+- **Aggregation Query Limitations**: Performing certain types of aggregation queries is more complex compared to traditional SQL databases, potentially impacting data analysis efficiency.
 
 
 ## IV. Use of GenAI
