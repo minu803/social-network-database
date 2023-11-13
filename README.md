@@ -19,6 +19,14 @@ This project designs and implements a social media graph database using Neo4j. I
   - `content` (string) - text content of the post
   - `timestamp` (datetime) - timestamp of when the post was created
   - `topic` (string) - topic of the post
+  
+- **Group**: Represents a group that users can join. Properties include:
+  - `groupID` (string) - unique ID for the group
+  - `name` (string) - name of the group
+  - `description` (string) - a brief description of the group
+
+- **Hashtag**: Represents a hashtag used in posts/comments. Properties include:
+  - `name` (string) - text of the hashtag
 
 #### Relationships
 
@@ -26,6 +34,8 @@ This project designs and implements a social media graph database using Neo4j. I
 - **COMMENTED_ON** (User)-[:COMMENTED_ON]->(Post) - connects a User node to a Post node that the user commented on
 - **FRIEND** (User)-[:FRIEND]->(User) - connects a User node to another User node that is a friend
 - **LIKED** (User)-[:LIKED]->(Post) - connects a User node to a Post node that the user liked
+- **MEMBER_OF** (User)-[:MEMBER_OF]->(Group): Connects a User node to a Group node that the user is a member of.
+- **TAGGED_WITH** (Post)-[:TAGGED_WITH]->(Hashtag): Connects a Post node to a Hashtag node representing a hashtag used in the post.
 
 ### Step2. Docker Setup
 Using the attached `docker-compose.yml` file, first run the following command in the terminal 
@@ -51,6 +61,18 @@ CREATE
   // Additional Posts
   // ...
 
+  // Groups
+  (groupMusic:Group {groupID: 'g1', name: 'Music Enthusiasts', description: 'A group for people who are passionate about music'}),
+  (groupTravel:Group {groupID: 'g2', name: 'Travel Buffs', description: 'A group for people who love to travel and explore new places'}),
+  // Additional Groups
+  // ...
+
+  // Hashtags
+  (hashtagMusic:Hashtag {name: '#MusicFestival'}),
+  (hashtagTravel:Hashtag {name: '#TravelTips'}),
+  // Additional Hashtags
+  // ...
+
   // Relationships
   (josh)-[:POSTED]->(post1),
   (josh)-[:POSTED]->(post5),
@@ -59,6 +81,18 @@ CREATE
   (josh)-[:LIKED]->(post3),
   (sam)-[:LIKED]->(post4),
   // Additional Relationships
+  // ...
+
+  // User-Group Relationships
+  (josh)-[:MEMBER_OF]->(groupMusic),
+  (sam)-[:MEMBER_OF]->(groupTravel),
+  // Additional User-Group Relationships
+  // ...
+
+  // Post-Hashtag Relationships
+  (post1)-[:TAGGED_WITH]->(hashtagMusic),
+  (post2)-[:TAGGED_WITH]->(hashtagTravel),
+  // Additional Post-Hashtag Relationships
   // ...
 ```
 
